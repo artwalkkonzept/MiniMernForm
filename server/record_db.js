@@ -50,14 +50,14 @@ class Db {
      * @param count The amount of artwalks to add.
      * @returns {Promise} Resolves when everything has been saved.
      */
-    async bootstrap(count = 4) {
+    async bootstrap(count = 1) {
         const article_description = ['ild 1', 'ild 2', 'ild 3', 'ild 4','ild 5', 'ild 6', 'ild 7', 'ild 8', 'ild 9', 'ild 10'];
         function getRandomInt(min, max) {
-            return Math.floor(Math.random() * 4);
+            return Math.floor(Math.random() * 1);
         }
 
         function getRandomArticle_title() {
-            return ['ZKM-Tour', 'Landschaften', 'Imprissionistische Landschaften', 'Tour'][getRandomInt(4)]
+            return ['ZKM-Tour', 'Landschaften', 'Imprissionistische Landschaften', 'Tour']
         }
 
         function getRandomArticle_description() {
