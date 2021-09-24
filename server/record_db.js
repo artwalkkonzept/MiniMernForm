@@ -51,13 +51,16 @@ class Db {
      * @returns {Promise} Resolves when everything has been saved.
      */
     async bootstrap(count = 4) {
+        const article_description = ['ild 1', 'ild 2', 'ild 3', 'ild 4','ild 5', 'ild 6', 'ild 7', 'ild 8', 'ild 9', 'ild 10'];
+        
 
-        function getArticle_title() {
+        function getRandomArticle_title() {
             return ['ZKM-Tour', 'Landschaften', 'Imprissionistische Landschaften', 'Tour']
         }
 
-        function getArticle_description() {
-            return ['ild 1', 'ild 2', 'ild 3', 'ild 4','ild 5', 'ild 6', 'ild 7', 'ild 8', 'ild 9', 'ild 10'];
+        function getRandomArticle_description() {
+            const shuffled = article_description.sort(() => 1 - Math.random());
+            return shuffled.slice();
         }
 
         let l = (await this.getRecords()).length;
@@ -68,8 +71,8 @@ class Db {
 
             for (let i = 0; i < count; i++) {
                 let record = new this.recordModel({
-                    article_title: getArticle_title(),
-                    article_description: getArticle_description()
+                    article_title: getRandomArticle_title(),
+                    article_description: getRandomArticle_description()
                 });
                 promises.push(record.save());
             }
