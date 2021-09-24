@@ -18,7 +18,7 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            artwalks: [],
+            //artwalks: [],
 
             records: []
         };
@@ -54,7 +54,6 @@ async getRecords() {
                     <Record path="/record/:id" getRecord={id => this.getRecord(id)}/>
                     <Records path="/" records={this.state.records}/>
                 </Router>
-                <Navbar />
             </>
         );
     }
