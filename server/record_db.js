@@ -52,29 +52,15 @@ class Db {
      */
     async bootstrap(count = 1) {
         const article_description = ['ild 1', 'ild 2', 'ild 3', 'ild 4','ild 5', 'ild 6', 'ild 7', 'ild 8', 'ild 9', 'ild 10'];
-        function getRandomInt(min, max) {
-            return Math.floor(Math.random() * 1);
-        }
-
-        function getRandomArticle_title() {
-            return ['ZKM-Tour', 'Landschaften', 'Imprissionistische Landschaften', 'Tour']
-        }
-
-        function getRandomArticle_description() {
-            const shuffled = article_description.sort(() => 1 - Math.random());
-            return shuffled.slice(0, getRandomInt(1,shuffled.length));
-        }
-
-        let l = (await this.getRecords()).length;
-        console.log("Record collection size:", l);
-
+        const  article_title = ['ZKM-Tour', 'Landschaften', 'Imprissionistische Landschaften', 'Tour'];
+        
         if (l === 0) {
             let promises = [];
 
             for (let i = 0; i < count; i++) {
                 let record = new this.recordModel({
-                    article_title: getRandomArticle_title(),
-                    article_description: getRandomArticle_description()
+                    article_title: getArticle_title(),
+                    article_description: getArticle_description()
                 });
                 promises.push(record.save());
             }
