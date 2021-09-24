@@ -4,6 +4,7 @@ const cors = require('cors');
 
 const mongoose = require('mongoose');
 const path = require('path');
+app.use(express.static('../client/build')); // Needed for serving production build of React
 
 /**** Configuration ****/
 const port = process.env.PORT || 8080;
