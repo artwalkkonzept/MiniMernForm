@@ -57,11 +57,11 @@ class Db {
         }
 
         function getRandomArticle_title() {
-            return ['ZKM-Tour', 'Landschaften', 'Imprissionistische Landschaften', 'Tour'][getRandomInt(0,3)]
+            return ['ZKM-Tour', 'Landschaften', 'Imprissionistische Landschaften', 'Tour'][getRandomInt(1)]
         }
 
         function getRandomArticle_description() {
-            const shuffled = article_description.sort(() => 0.5 - Math.random());
+            const shuffled = article_description.sort(() => 1 - Math.random());
             return shuffled.slice(0, getRandomInt(1,shuffled.length));
         }
 
