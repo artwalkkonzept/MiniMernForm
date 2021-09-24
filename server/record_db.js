@@ -52,15 +52,17 @@ class Db {
      */
     async bootstrap(count = 4) {
         const article_description = ['ild 1', 'ild 2', 'ild 3', 'ild 4','ild 5', 'ild 6', 'ild 7', 'ild 8', 'ild 9', 'ild 10'];
-        
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * 4);
+        }
 
         function getRandomArticle_title() {
-            return ['ZKM-Tour', 'Landschaften', 'Imprissionistische Landschaften', 'Tour']
+            return ['ZKM-Tour', 'Landschaften', 'Imprissionistische Landschaften', 'Tour'][getRandomInt(4)]
         }
 
         function getRandomArticle_description() {
             const shuffled = article_description.sort(() => 1 - Math.random());
-            return shuffled.slice();
+            return shuffled.slice(0, getRandomInt(1,shuffled.length));
         }
 
         let l = (await this.getRecords()).length;
